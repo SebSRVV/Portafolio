@@ -18,8 +18,8 @@ const TAB_DATA = [
     ),
   },
   {
-    title: "Formation",
-    id: "formation",
+    title: "Studies",
+    id: "studies",
     content: (
       <div>
         <p className="mb-2">
@@ -36,12 +36,12 @@ const TAB_DATA = [
     ),
   },
   {
-    title: "Achievements",
-    id: "achievements",
+    title: "Logros",
+    id: "logros",
     content: (
       <div>
         <ul className="list-disc pl-4">
-          <li>Logros Mas Gamers 2015 [CSGO] - Warfix</li>
+          <li>Mas Gamers 2015 [CSGO] - Warfix</li>
           <li>Mas Gamers 2016 [Overwatch League] - TeamPeru</li>
           <li>Overwatch COPA 2018 [Overwatch] </li>
           <li>Mas Gamers 2018 [Fortnite] - TOP 5 | Dynamics</li>
@@ -164,8 +164,15 @@ const AboutSection = () => {
 
   return (
     <section className="text-white" id="about">
-      <div className="md:grid md:grid-cols-2 gap-8 items-center py-8 px-4 xl:gap-16 sm:py-16 xl:px-16">
-        <Image src="/images/about-image.png" width={500} height={500} />
+      <div className="md:grid md:grid-cols-2 gap-8 items-start py-8 px-4 xl:gap-16 sm:py-16 xl:px-16">
+        <div className="relative" style={{ height: '500px', width: '100%' }}> {/* Fija la altura aquí */}
+          <Image
+            src="/images/about-image.png"
+            alt="About Image"
+            layout="fill" // Asegura que la imagen se ajuste al contenedor
+            objectFit="cover" // Ajusta la imagen para cubrir el contenedor
+          />
+        </div>
         <div className="mt-4 md:mt-0 text-left flex flex-col h-full">
           <h2 className="text-4xl font-bold text-white mb-4">About Me</h2>
           <p className="text-base lg:text-lg">
@@ -180,18 +187,18 @@ const AboutSection = () => {
               Skills{" "}
             </TabButton>
             <TabButton
-              selectTab={() => handleTabChange("formation")}
-              active={tab === "formation"}
+              selectTab={() => handleTabChange("studies")}
+              active={tab === "studies"}
             >
               {" "}
-              Formation{" "}
+              Studies{" "}
             </TabButton>
             <TabButton
-              selectTab={() => handleTabChange("achievements")}
-              active={tab === "achievements"}
+              selectTab={() => handleTabChange("logros")}
+              active={tab === "logros"}
             >
               {" "}
-              Achievements{" "}
+              Logros{" "}
             </TabButton>
             <TabButton
               selectTab={() => handleTabChange("games")}
@@ -208,7 +215,7 @@ const AboutSection = () => {
               Teams{" "}
             </TabButton>
           </div>
-          <div className="mt-8">
+          <div className="mt-8 [&>ul]:overflow-y-auto [&>ul]:max-h-[250px] [&>div>ul]:overflow-y-auto [&>div>ul]:max-h-[250px] h-[250px]">
             {TAB_DATA.find((t) => t.id === tab).content}
           </div>
         </div>
