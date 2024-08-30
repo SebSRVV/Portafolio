@@ -7,12 +7,12 @@ import { motion, useInView } from "framer-motion";
 const projectsData = [
   {
     id: 1,
-    title: "Nvidia RTX 3080TI",
+    title: "Nvidia RTX 3080",
     description: "High-performance graphics card.",
     image: "/images/projects/1.png",
     tag: ["Specs"],
-    gitUrl: "/",
-    previewUrl: "/",
+    gitUrl: "https://www.amazon.com/ASUS-GeForce-Graphics-DisplayPort-Bearings/dp/B08HH5WF97",
+    previewUrl: "https://www.amazon.com/ASUS-GeForce-Graphics-DisplayPort-Bearings/dp/B08HH5WF97",
   },
   {
     id: 2,
@@ -20,7 +20,7 @@ const projectsData = [
     description: "Fast and reliable SSD storage.",
     image: "/images/projects/2.png",
     tag: ["Specs"],
-    gitUrl: "/",
+    gitUrl: "https://www.amazon.com/dp/B0BHJF2VRN?ref_=cm_sw_r_cp_ud_dp_WCXD1MBRS3HA1P8N0D89&skipTwisterOG=1s",
     previewUrl: "/",
   },
   {
@@ -29,16 +29,16 @@ const projectsData = [
     description: "High-speed processor for gaming and productivity.",
     image: "/images/projects/3.png",
     tag: ["Specs"],
-    gitUrl: "/",
+    gitUrl: "https://www.amazon.com/Intel-i9-10900K-Desktop-Processor-Unlocked/dp/B086MHSTVD/ref=sr_1_3?refresh=1&sr=8-3",
     previewUrl: "/",
   },
   {
     id: 4,
-    title: "32 GB RAM",
-    description: "High-capacity RAM for smooth performance.",
+    title: "ROG Maximus XIII Hero",
+    description: "Intel LGA 1200 socket.",
     image: "/images/projects/4.png",
     tag: ["Specs"],
-    gitUrl: "/",
+    gitUrl: "https://www.amazon.com/ROG-XIII-Intel11th-Motherboard-Thunderbolt/dp/B08T6BHQC8/ref=sr_1_1?sr=8-1",
     previewUrl: "/",
   },
   {
@@ -47,7 +47,7 @@ const projectsData = [
     description: "Stylish and functional case for PC build.",
     image: "/images/projects/5.png",
     tag: ["Specs"],
-    gitUrl: "/",
+    gitUrl: "https://www.amazon.com/ASUS-Tempered-Aluminium-Radiator-Support/dp/B07RS9CM53/ref=sr_1_2?sr=8-2",
     previewUrl: "/",
   },
   {
@@ -56,7 +56,7 @@ const projectsData = [
     description: "Lightweight and high-precision gaming mouse.",
     image: "/images/projects/6.png",
     tag: ["Gear"],
-    gitUrl: "/",
+    gitUrl: "https://www.amazon.com/Logitech-SUPERLIGHT-Ultra-Lightweight-Programmable-Compatible/dp/B087LXCTFJ/ref=sr_1_3?sr=8-3",
     previewUrl: "/",
   },
   {
