@@ -8,19 +8,19 @@ export async function POST(req, res) {
   const { email, subject, message } = await req.json();
   console.log(email, subject, message);
   try {
-    const data = await resend.emails.send({
-      from: fromEmail,
-      to: [fromEmail, email],
-      subject: subject,
-      react: (
-        <>
-          <h1>{subject}</h1>
-          <p>Gracias por ponerte en contacto conmigo</p>
-          <p>Nuevo mensaje enviado:</p>
-          <p>{message}</p>
-        </>
-      ),
-    });
+   // const data = await resend.emails.send({
+   //   from: fromEmail,
+    //  to: [fromEmail, email],
+   //   subject: subject,
+   //   react: (
+    //    <>
+   //       <h1>{subject}</h1>
+    //      <p>Gracias por ponerte en contacto conmigo</p>
+    //      <p>Nuevo mensaje enviado:</p>
+    //      <p>{message}</p>
+    //    </>
+   //   ),
+   // });
     return NextResponse.json(data);
   } catch (error) {
     return NextResponse.json({ error });
