@@ -3,66 +3,61 @@ import React from "react";
 import dynamic from "next/dynamic";
 
 const AnimatedNumbers = dynamic(
-  () => {
-    return import("react-animated-numbers");
-  },
+  () => import("react-animated-numbers"),
   { ssr: false }
 );
 
 const achievementsList = [
   {
-    metric: "Projects",
-    value: "100",
-    postfix: "+",
+    prefix: " +",
+    metric: "Earnings",
+    value: "6200",
+    postfix: "$",
   },
   {
     prefix: "~",
-    metric: "Users",
-    value: "100,000",
+    metric: "Teams",
+    value: "27",
   },
   {
     metric: "Awards",
-    value: "7",
+    value: "38",
   },
   {
     metric: "Years",
-    value: "5",
+    value: "10",
   },
 ];
 
 const AchievementsSection = () => {
   return (
-    <div className="py-8 px-4 xl:gap-16 sm:py-16 xl:px-16">
-      <div className="sm:border-[#33353F] sm:border rounded-md py-8 px-16 flex flex-col sm:flex-row items-center justify-between">
-        {achievementsList.map((achievement, index) => {
-          return (
-            <div
-              key={index}
-              className="flex flex-col items-center justify-center mx-4 my-4 sm:my-0"
-            >
-              <h2 className="text-white text-4xl font-bold flex flex-row">
-                {achievement.prefix}
-                <AnimatedNumbers
-                  includeComma
-                  animateToNumber={parseInt(achievement.value)}
-                  locale="en-US"
-                  className="text-white text-4xl font-bold"
-                  configs={(_, index) => {
-                    return {
-                      mass: 1,
-                      friction: 100,
-                      tensions: 140 * (index + 1),
-                    };
-                  }}
-                />
-                {achievement.postfix}
-              </h2>
-              <p className="text-[#ADB7BE] text-base">{achievement.metric}</p>
-            </div>
-          );
-        })}
+    <section className="py-10 px-6 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900">
+      <div className="max-w-screen-xl mx-auto bg-gray-900 rounded-lg p-8 flex flex-wrap items-center justify-around shadow-xl">
+        {achievementsList.map((achievement, index) => (
+          <div
+            key={index}
+            className="flex flex-col items-center justify-center mx-4 my-4"
+          >
+            <h2 className="text-cyan-400 text-6xl font-extrabold flex items-center">
+              {achievement.prefix}
+              <AnimatedNumbers
+                includeComma
+                animateToNumber={parseInt(achievement.value)}
+                locale="en-US"
+                className="text-white text-6xl font-extrabold ml-2"
+                configs={(_, index) => ({
+                  mass: 1,
+                  friction: 60,
+                  tension: 120 * (index + 1),
+                })}
+              />
+              {achievement.postfix}
+            </h2>
+            <p className="text-gray-300 text-lg mt-2">{achievement.metric}</p>
+          </div>
+        ))}
       </div>
-    </div>
+    </section>
   );
 };
 

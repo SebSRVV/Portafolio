@@ -5,18 +5,23 @@ import NavLink from "./NavLink";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
 import MenuOverlay from "./MenuOverlay";
 
+// NavLinks personalizados para tu sitio web
 const navLinks = [
+  {
+    title: "Home",
+    path: "#home",
+  },
   {
     title: "About",
     path: "#about",
   },
   {
-    title: "Projects",
-    path: "#projects",
+    title: "Socials",
+    path: "#email",
   },
   {
-    title: "Contact",
-    path: "#contact",
+    title: "Gear & Setup",
+    path: "#projects",
   },
 ];
 
@@ -24,42 +29,47 @@ const Navbar = () => {
   const [navbarOpen, setNavbarOpen] = useState(false);
 
   return (
-    <nav className="fixed mx-auto border border-[#33353F] top-0 left-0 right-0 z-10 bg-[#121212] bg-opacity-100">
-      <div className="flex container lg:py-4 flex-wrap items-center justify-between mx-auto px-4 py-2">
-        <Link
-          href={"/"}
-          className="text-2xl md:text-5xl text-white font-semibold"
-        >
-          LOGO
+    <nav className="fixed top-0 left-0 right-0 z-10 bg-gradient-to-r from-blue-900 to-cyan-500 shadow-lg">
+      <div className="container flex items-center justify-between mx-auto p-4 lg:py-2">
+        {/* Titulo del sitio web con link a la pagina principal */}
+        <Link href="/" className="text-4xl font-bold text-white hover:text-gray-300">
+          SebRVV
         </Link>
+        {/* Boton para abrir/cerrar el menu movil */}
         <div className="mobile-menu block md:hidden">
           {!navbarOpen ? (
             <button
               onClick={() => setNavbarOpen(true)}
-              className="flex items-center px-3 py-2 border rounded border-slate-200 text-slate-200 hover:text-white hover:border-white"
+              className="flex items-center px-3 py-2 border rounded border-black text-white hover:tes-gray-300 hover:border-gray-300"
             >
-              <Bars3Icon className="h-5 w-5" />
+              <Bars3Icon className="h-6 w-6" />
             </button>
           ) : (
             <button
               onClick={() => setNavbarOpen(false)}
-              className="flex items-center px-3 py-2 border rounded border-slate-200 text-slate-200 hover:text-white hover:border-white"
+              className="flex items-center px-3 py-2 border rounded border-black text-white hover:text-gray-300 hover:border-gray-300"
             >
-              <XMarkIcon className="h-5 w-5" />
+              <XMarkIcon className="h-6 w-6" />
             </button>
           )}
         </div>
-        <div className="menu hidden md:block md:w-auto" id="navbar">
-          <ul className="flex p-4 md:p-0 md:flex-row md:space-x-8 mt-0">
+        {/* Menu de navegacion para pantallas mas grandes */}
+        <div className="menu hidden md:block md:w-auto">
+          <ul className="flex space-x-8 text-lg">
             {navLinks.map((link, index) => (
               <li key={index}>
-                <NavLink href={link.path} title={link.title} />
+                <NavLink
+                  href={link.path}
+                  title={link.title}
+                  className="text-black hover:text-gray-700 transition-colors duration-300"
+                />
               </li>
             ))}
           </ul>
         </div>
       </div>
-      {navbarOpen ? <MenuOverlay links={navLinks} /> : null}
+      {/* Overlay para el menu movil */}
+      {navbarOpen && <MenuOverlay links={navLinks} />}
     </nav>
   );
 };

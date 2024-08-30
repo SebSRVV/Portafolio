@@ -7,17 +7,21 @@ const variants = {
 };
 
 const TabButton = ({ active, selectTab, children }) => {
-  const buttonClasses = active ? "text-white" : "text-[#ADB7BE]";
+  // Define las clases de texto y los estilos de transición
+  const buttonClasses = active
+    ? "text-white font-bold border-b-2 border-white"
+    : "text-gray-300 hover:text-white";
 
   return (
-    <button onClick={selectTab}>
-      <p className={`mr-3 font-semibold hover:text-white ${buttonClasses}`}>
-        {children}
-      </p>
+    <button
+      onClick={selectTab}
+      className={`relative px-4 py-2 transition-colors duration-300 ${buttonClasses}`}
+    >
+      <p className="text-lg font-semibold">{children}</p>
       <motion.div
         animate={active ? "active" : "default"}
         variants={variants}
-        className="h-1 bg-primary-500 mt-2 mr-3"
+        className="absolute bottom-0 left-0 h-1 bg-gradient-to-r from-blue-500 to-cyan-500"
       ></motion.div>
     </button>
   );
