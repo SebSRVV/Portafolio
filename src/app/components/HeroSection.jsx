@@ -25,15 +25,13 @@ const HeroSection = () => {
             <div className="relative">
               <TypeAnimation
                 sequence={[
-                  "Seb",
-                  200,
                   "SebRVV",
                   1000,
-                  "Web Developer",
+                  "E-Sports Player",
                   1000,
                   "Game Developer",
                   1000,
-                  "UI/UX Designer",
+                  "Programmer",
                   1000,
                   "Gamer",
                   1000,
