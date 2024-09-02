@@ -47,7 +47,7 @@ const HeroSection = () => {
             </p>
             <Link
               href="/#contact"
-              className="px-6 py-3 rounded-full bg-gradient-to-br from-blue-500 to-teal-500 text-white font-semibold hover:bg-gradient-to-bl transition-colors duration-300 inline-block"
+              className="px-6 py-3 rounded-full bg-gradient-to-br from-blue-500 to-teal-500 text-white font-semibold hover:bg-gradient-to-bl transition-colors duration-300 inline-block text-center"
             >
               Contactame
             </Link>
