@@ -19,25 +19,16 @@ const EmailSection = () => {
       subject: e.target.subject.value,
       message: e.target.message.value,
     };
-    const JSONdata = JSON.stringify(data);
-    const endpoint = "/api/send";
 
-    // Form the request for sending data to the server.
-    const options = {
-      // The method is POST because we are sending data.
+    const response = await fetch("/api/send", {
       method: "POST",
-      // Tell the server we're sending JSON.
       headers: {
         "Content-Type": "application/json",
       },
-      // Body of the request is the JSON data we created above.
-      body: JSONdata,
-    };
+      body: JSON.stringify(data),
+    });
 
-    const response = await fetch(endpoint, options);
-    const resData = await response.json();
-
-    if (response.status === 200) {
+    if (response.ok) {
       console.log("Mensaje enviado.");
       setEmailSubmitted(true);
     }
@@ -45,15 +36,12 @@ const EmailSection = () => {
 
   return (
     <section
-      id="contact"
-      className="grid md:grid-cols-2 my-12 md:my-12 py-24 gap-4 relative"
+      id="socials"
+      className="grid md:grid-cols-2 my-12 py-24 gap-4 relative"
     >
-      
       <div className="z-10">
-        <h5 className="text-xl font-bold text-white my-2">
-          Socials
-        </h5>
-        <div className="socials flex flex-row gap-2">
+        <h5 className="text-xl font-bold text-white my-2">Socials</h5>
+        <div className="flex gap-2">
           <Link href="https://github.com/SebSRVV">
             <Image src={GithubIcon} alt="Github Icon" className="text-white" />
           </Link>
@@ -74,13 +62,16 @@ const EmailSection = () => {
           </Link>
         </div>
       </div>
+
       <div>
-      <h5 className="text-xl font-bold text-white my-2">
-          Contact
-        </h5>
+      <section
+      id="contact"
+      className="grid md:grid-cols-2 my-0 py-0 gap-4 relative"
+    ></section>
+        <h5 className="text-xl font-bold text-white my-2">Contact</h5>
         {emailSubmitted ? (
           <p className="text-green-500 text-sm mt-2">
-            El email fue enviado correctamente!
+            ¡El email fue enviado correctamente!
           </p>
         ) : (
           <form className="flex flex-col" onSubmit={handleSubmit}>

@@ -16,12 +16,16 @@ const navLinks = [
     path: "#about",
   },
   {
+    title: "Contact",
+    path: "#contact",
+  },
+  {
     title: "Socials",
-    path: "#email",
+    path: "#socials",
   },
   {
     title: "Gear & Setup",
-    path: "#projects",
+    path: "#specs",
   },
 ];
 
