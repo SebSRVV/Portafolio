@@ -4,7 +4,7 @@ import NavLink from "./NavLink";
 
 const Footer = () => {
   return (
-    <footer className="bg-gradient-to-r from-gray-800 via-gray-900 to-black text-white py-8 border-t border-gray-700">
+    <footer className="bg-gradient-to-r from-background-800 via-backgorund-900 to-text text-text-50 py-8 border-t border-secondary-400">
       <div className="container mx-auto flex flex-col md:flex-row justify-between items-center px-6">
         {/* Logo o nombre del sitio */}
         <div className="text-2xl font-bold">
@@ -17,8 +17,8 @@ const Footer = () => {
             ©2024 All rights reserved.
           </p>
           <nav className="flex space-x-4">
-            <a href="#about" className="hover:text-gray-400">About</a>
-            <a href="#" className="hover:text-gray-400">Home</a>
+            <a href="#about" className="hover:text-text-400">About</a>
+            <a href="#" className="hover:text-text-400">Home</a>
           </nav>
         </div>
       </div>

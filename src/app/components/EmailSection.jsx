@@ -40,8 +40,8 @@ const EmailSection = () => {
       className="grid md:grid-cols-2 my-12 py-24 gap-4 relative"
     >
       <div className="z-10">
-        <h5 className="text-xl font-bold text-white my-2">Socials</h5>
-        <div className="flex gap-2">
+        <h5 className="text-xl font-bold text-text-100 my-2">Socials</h5>
+        <div className="flex gap-8 ">
           <Link href="https://github.com/SebSRVV">
             <Image src={GithubIcon} alt="Github Icon" className="text-white" />
           </Link>
@@ -123,7 +123,7 @@ const EmailSection = () => {
             </div>
             <button
               type="submit"
-              className="bg-gradient-to-r from-blue-400 via-cyan-500 to-blue-600 hover:bg-gradient-to-l text-white font-medium py-2.5 px-5 rounded-lg w-full"
+              className="bg-gradient-to-r from-secondary-400 via-secundary-500 to-secondary-600 hover:bg-gradient-to-l text-white font-medium py-2.5 px-5 rounded-lg w-full"
             >
               Enviar Mensaje
             </button>
