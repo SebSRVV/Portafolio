@@ -1,0 +1,9 @@
+{
+    "rewrites": [
+      {
+        "source": "/safepassdocs(/.*)?",
+        "destination": "https://safe-pass-docs.vercel.app/"
+      }
+    ]
+  }
+  
