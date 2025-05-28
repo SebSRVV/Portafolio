@@ -1,79 +1,80 @@
-"use client";
-import Link from "next/link";
-import React, { useState } from "react";
-import NavLink from "./NavLink";
-import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/solid";
-import MenuOverlay from "./MenuOverlay";
+'use client';
 
-// NavLinks personalizados para tu sitio web
+import React, { useState, useEffect } from 'react';
+import Link from 'next/link';
+import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/solid';
+import NavLink from './NavLink';
+import MenuOverlay from './MenuOverlay';
+
 const navLinks = [
-  {
-    title: "Home",
-    path: "#home",
-  },
-  {
-    title: "About",
-    path: "#about",
-  },
-  {
-    title: "Contact",
-    path: "#contact",
-  },
-  {
-    title: "Socials",
-    path: "#socials",
-  },
-  {
-    title: "Gear & Setup",
-    path: "#specs",
-  },
+  { title: 'Home', path: '#home' },
+  { title: 'About', path: '#about' },
+  { title: 'Gear & Setup', path: '#specs' },
+  { title: 'Socials', path: '#socials' },
 ];
 
 const Navbar = () => {
   const [navbarOpen, setNavbarOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 50);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-10 bg-gradient-to-r from-blue-900 to-cyan-500 shadow-lg">
-      <div className="container flex items-center justify-between mx-auto p-4 lg:py-2">
-        {/* Titulo del sitio web con link a la pagina principal */}
-        <Link href="/" className="text-4xl font-bold text-white hover:text-gray-300">
-          SebRVV
+    <nav
+      className={`fixed top-0 left-0 right-0 z-50 backdrop-blur-md transition-all duration-300 ${
+        scrolled ? 'bg-black/80 py-2 shadow-md' : 'bg-transparent py-4'
+      }`}
+    >
+      <div className="container mx-auto flex justify-between items-center px-6">
+        {/* Logo */}
+        <Link
+          href="/"
+          className="text-3xl font-extrabold text-white tracking-tight"
+        >
+          Seb<span className="text-cyan-400">RVV</span>
         </Link>
-        {/* Boton para abrir/cerrar el menu movil */}
-        <div className="mobile-menu block md:hidden">
-          {!navbarOpen ? (
-            <button
-              onClick={() => setNavbarOpen(true)}
-              className="flex items-center px-3 py-2 border rounded border-black text-white hover:tes-gray-300 hover:border-gray-300"
-            >
-              <Bars3Icon className="h-6 w-6" />
-            </button>
-          ) : (
-            <button
-              onClick={() => setNavbarOpen(false)}
-              className="flex items-center px-3 py-2 border rounded border-black text-white hover:text-gray-300 hover:border-gray-300"
-            >
-              <XMarkIcon className="h-6 w-6" />
-            </button>
-          )}
-        </div>
-        {/* Menu de navegacion para pantallas mas grandes */}
-        <div className="menu hidden md:block md:w-auto">
-          <ul className="flex space-x-8 text-lg">
-            {navLinks.map((link, index) => (
-              <li key={index}>
-                <NavLink
-                  href={link.path}
-                  title={link.title}
-                  className="text-black hover:text-gray-700 transition-colors duration-300"
-                />
-              </li>
-            ))}
-          </ul>
+
+        {/* Desktop nav */}
+        <ul className="hidden md:flex space-x-8 text-lg font-medium">
+          {navLinks.map((link, index) => (
+            <li key={index} className="group relative">
+              <NavLink
+                href={link.path}
+                title={link.title}
+                className="text-gray-200 transition duration-300 hover:text-cyan-400"
+              />
+              {/* Hover underline effect */}
+              <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-cyan-400 transition-all duration-300 group-hover:w-full"></span>
+            </li>
+          ))}
+        </ul>
+
+        {/* Mobile button */}
+        <div className="md:hidden">
+          <button
+            onClick={() => setNavbarOpen(!navbarOpen)}
+            aria-label="Toggle menu"
+            className="text-white focus:outline-none hover:text-cyan-400 transition"
+          >
+            {navbarOpen ? (
+              <XMarkIcon className="h-7 w-7" />
+            ) : (
+              <Bars3Icon className="h-7 w-7" />
+            )}
+          </button>
         </div>
       </div>
-      {/* Overlay para el menu movil */}
-      {navbarOpen && <MenuOverlay links={navLinks} />}
+
+      {/* Mobile menu overlay */}
+      {navbarOpen && (
+        <div className="md:hidden bg-black/95 text-white px-6 py-6 animate-slide-down">
+          <MenuOverlay links={navLinks} onClose={() => setNavbarOpen(false)} />
+        </div>
+      )}
     </nav>
   );
 };

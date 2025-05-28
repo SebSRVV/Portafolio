@@ -1,10 +1,10 @@
 import Link from "next/link";
 
-const NavLink = ({ href, title }) => {
+const NavLink = ({ href, title, className = "" }) => {
   return (
     <Link
       href={href}
-      className="block py-2 pl-3 pr-4 text-text-50 sm:text-xl rounded md:p-0 hover:text-black"
+      className={`relative inline-block px-2 py-1 text-white hover:text-emerald-400 transition-colors duration-300 ${className}`}
     >
       {title}
     </Link>

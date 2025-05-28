@@ -1,28 +1,30 @@
-import React from "react";
-import { motion } from "framer-motion";
+'use client';
+import React from 'react';
+import { motion } from 'framer-motion';
 
-const variants = {
-  default: { width: 0 },
-  active: { width: "calc(100% - 0.75rem)" },
+const underlineVariants = {
+  hidden: { width: 0 },
+  visible: { width: '100%' },
 };
 
 const TabButton = ({ active, selectTab, children }) => {
-  // Define las clases de texto y los estilos de transición
-  const buttonClasses = active
-    ? "text-white font-bold border-b-2 border-white"
-    : "text-gray-300 hover:text-white";
-
   return (
     <button
       onClick={selectTab}
-      className={`relative px-4 py-2 transition-colors duration-300 ${buttonClasses}`}
+      className={`relative px-4 py-2 text-lg font-semibold transition-all duration-300 ${
+        active ? 'text-white' : 'text-gray-400 hover:text-cyan-300'
+      }`}
     >
-      <p className="text-lg font-semibold">{children}</p>
+      {children}
+
+      {/* Underline animation */}
       <motion.div
-        animate={active ? "active" : "default"}
-        variants={variants}
-        className="absolute bottom-0 left-0 h-1 bg-gradient-to-r from-blue-500 to-cyan-500"
-      ></motion.div>
+        className="absolute left-1 bottom-0 h-[2px] rounded-full bg-gradient-to-r from-blue-500 to-cyan-400"
+        initial="hidden"
+        animate={active ? 'visible' : 'hidden'}
+        variants={underlineVariants}
+        transition={{ duration: 0.3 }}
+      />
     </button>
   );
 };

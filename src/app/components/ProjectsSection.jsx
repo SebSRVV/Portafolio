@@ -1,4 +1,5 @@
 "use client";
+
 import React, { useState, useRef } from "react";
 import ProjectCard from "./ProjectCard";
 import ProjectTag from "./ProjectTag";
@@ -20,7 +21,7 @@ const projectsData = [
     description: "Fast and reliable SSD storage.",
     image: "/images/projects/2.png",
     tag: ["Specs"],
-    gitUrl: "https://www.amazon.com/dp/B0BHJF2VRN?ref_=cm_sw_r_cp_ud_dp_WCXD1MBRS3HA1P8N0D89&skipTwisterOG=1s",
+    gitUrl: "https://www.amazon.com/dp/B0BHJF2VRN",
     previewUrl: "/",
   },
   {
@@ -29,7 +30,7 @@ const projectsData = [
     description: "High-speed processor for gaming and productivity.",
     image: "/images/projects/3.png",
     tag: ["Specs"],
-    gitUrl: "https://www.amazon.com/Intel-i9-10900K-Desktop-Processor-Unlocked/dp/B086MHSTVD/ref=sr_1_3?refresh=1&sr=8-3",
+    gitUrl: "https://www.amazon.com/Intel-i9-10900K-Desktop-Processor-Unlocked/dp/B086MHSTVD",
     previewUrl: "/",
   },
   {
@@ -38,7 +39,7 @@ const projectsData = [
     description: "Intel LGA 1200 socket.",
     image: "/images/projects/4.png",
     tag: ["Specs"],
-    gitUrl: "https://www.amazon.com/ROG-XIII-Intel11th-Motherboard-Thunderbolt/dp/B08T6BHQC8/ref=sr_1_1?sr=8-1",
+    gitUrl: "https://www.amazon.com/ROG-XIII-Intel11th-Motherboard-Thunderbolt/dp/B08T6BHQC8",
     previewUrl: "/",
   },
   {
@@ -47,7 +48,7 @@ const projectsData = [
     description: "Stylish and functional case for PC build.",
     image: "/images/projects/5.png",
     tag: ["Specs"],
-    gitUrl: "https://www.amazon.com/ASUS-Tempered-Aluminium-Radiator-Support/dp/B07RS9CM53/ref=sr_1_2?sr=8-2",
+    gitUrl: "https://www.amazon.com/ASUS-Tempered-Aluminium-Radiator-Support/dp/B07RS9CM53",
     previewUrl: "/",
   },
   {
@@ -56,7 +57,7 @@ const projectsData = [
     description: "Lightweight and high-precision gaming mouse.",
     image: "/images/projects/6.png",
     tag: ["Gear"],
-    gitUrl: "https://www.amazon.com/Logitech-SUPERLIGHT-Ultra-Lightweight-Programmable-Compatible/dp/B087LXCTFJ/ref=sr_1_3?sr=8-3",
+    gitUrl: "https://www.amazon.com/Logitech-SUPERLIGHT-Ultra-Lightweight-Programmable-Compatible/dp/B087LXCTFJ",
     previewUrl: "/",
   },
   {
@@ -65,7 +66,7 @@ const projectsData = [
     description: "High-quality microphone for clear audio.",
     image: "/images/projects/7.png",
     tag: ["Gear"],
-    gitUrl: "https://www.amazon.com/HyperX-QuadCast-Condenser-Microphone-Anti-Vibration/dp/B08G8WH435/ref=sr_1_1_sspa?s=electronics&sr=1-1-spons&sp_csd=d2lkZ2V0TmFtZT1zcF9hdGY&psc=1",
+    gitUrl: "https://www.amazon.com/HyperX-QuadCast-Condenser-Microphone-Anti-Vibration/dp/B08G8WH435",
     previewUrl: "/",
   },
   {
@@ -74,7 +75,7 @@ const projectsData = [
     description: "Comfortable headphones with excellent sound quality.",
     image: "/images/projects/8.png",
     tag: ["Gear"],
-    gitUrl: "https://www.amazon.com/Logitech-PRO-X-2-LIGHTSPEED-Wireless-Gaming-Headset/dp/B0B3F8V4JG/ref=sr_1_1?s=electronics&sr=1-1",
+    gitUrl: "https://www.amazon.com/Logitech-PRO-X-2-LIGHTSPEED-Wireless-Gaming-Headset/dp/B0B3F8V4JG",
     previewUrl: "/",
   },
   {
@@ -89,48 +90,48 @@ const projectsData = [
   {
     id: 10,
     title: "Mousepad Zowie G-SR",
-    description: "Durable mousepad for accurate mouse movements (Control).",
+    description: "Durable mousepad for accurate mouse movements.",
     image: "/images/projects/10.png",
     tag: ["Gear"],
-    gitUrl: "https://www.amazon.com/Benq-Gaming-Mouse-Pad-Zowie/dp/B01LAGKSXG/ref=sr_1_8?s=electronics&sr=1-8",
+    gitUrl: "https://www.amazon.com/Benq-Gaming-Mouse-Pad-Zowie/dp/B01LAGKSXG",
     previewUrl: "/",
   },
   {
     id: 11,
     title: "Valorant",
-    description: "DPI: 400\nSens: 0.14\nADS: 0.82",
+    description: "DPI: 400 | Sens: 0.14 | ADS: 0.82",
     image: "/images/projects/11.png",
     tag: ["Settings"],
-    gitUrl: "https://tracker.gg/valorant/profile/riot/seb%23rvv/overview?season=4539cac3-47ae-90e5-3d01-b3812ca3274e",
+    gitUrl: "https://tracker.gg/valorant/profile/riot/seb%23rvv/overview",
     previewUrl: "/",
   },
   {
-  id: 12,
-  title: "Overwatch",
-  description: "DPI: 1600\nSens: 3.20\nADS: 0.90",
-  image: "/images/projects/12.png",
-  tag: ["Settings"],
-  gitUrl: "https://tracker.gg/overwatch/profile/battlenet/Seb%2312992/overview",
-  previewUrl: "/",
-},
-{
-  id: 13,
-  title: "CSGO",
-  description: "DPI: 400 / 500hz \nSens: 2.40\n",
-  image: "/images/projects/13.png",
-  tag: ["Settings"],
-  gitUrl: "https://steamcommunity.com/id/SebRVV",
-  previewUrl: "/",
-},
-{
-  id: 13,
-  title: "Fortnite",
-  description: "DPI: 400 \nSens: 4.32\nADS: 0.33",
-  image: "/images/projects/14.png",
-  tag: ["Settings"],
-  gitUrl: "https://fortnite-esports.fandom.com/wiki/SebRVV",
-  previewUrl: "/",
-},
+    id: 12,
+    title: "Overwatch",
+    description: "DPI: 1600 | Sens: 3.20 | ADS: 0.90",
+    image: "/images/projects/12.png",
+    tag: ["Settings"],
+    gitUrl: "https://tracker.gg/overwatch/profile/battlenet/Seb%2312992/overview",
+    previewUrl: "/",
+  },
+  {
+    id: 13,
+    title: "CSGO",
+    description: "DPI: 400 | 500hz | Sens: 2.40",
+    image: "/images/projects/13.png",
+    tag: ["Settings"],
+    gitUrl: "https://steamcommunity.com/id/SebRVV",
+    previewUrl: "/",
+  },
+  {
+    id: 14,
+    title: "Fortnite",
+    description: "DPI: 400 | Sens: 4.32 | ADS: 0.33",
+    image: "/images/projects/14.png",
+    tag: ["Settings"],
+    gitUrl: "https://fortnite-esports.fandom.com/wiki/SebRVV",
+    previewUrl: "/",
+  },
 ];
 
 const ProjectsSection = () => {
@@ -138,13 +139,12 @@ const ProjectsSection = () => {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true });
 
-  const handleTagChange = (newTag) => {
-    setTag(newTag);
-  };
+  const handleTagChange = (newTag) => setTag(newTag);
 
-  const filteredProjects = tag === "All" ? projectsData : projectsData.filter((project) =>
-    project.tag.includes(tag)
-  );
+  const filteredProjects =
+    tag === "All"
+      ? projectsData
+      : projectsData.filter((project) => project.tag.includes(tag));
 
   const cardVariants = {
     initial: { y: 50, opacity: 0 },
@@ -152,52 +152,46 @@ const ProjectsSection = () => {
   };
 
   return (
-    <section id="specs">
-      <h2 className="text-center text-4xl font-bold text-white mt-4 mb-8 md:mb-12">
-        Gear & Setup
-      </h2>
-      <div className="text-white flex flex-row justify-center items-center gap-2 py-6">
-        <ProjectTag
-          onClick={handleTagChange}
-          name="All"
-          isSelected={tag === "All"}
-        />
-        <ProjectTag
-          onClick={handleTagChange}
-          name="Specs"
-          isSelected={tag === "Specs"}
-        />
-        <ProjectTag
-          onClick={handleTagChange}
-          name="Gear"
-          isSelected={tag === "Gear"}
-        />
-                <ProjectTag
-          onClick={handleTagChange}
-          name="Settings"
-          isSelected={tag === "Settings"}
-        />
-      </div>
-      <ul ref={ref} className="grid md:grid-cols-3 gap-8 md:gap-12">
-        {filteredProjects.map((project, index) => (
-          <motion.li
-            key={index}
-            variants={cardVariants}
-            initial="initial"
-            animate={isInView ? "animate" : "initial"}
-            transition={{ duration: 0.3, delay: index * 0.4 }}
-          >
-            <ProjectCard
-              key={project.id}
-              title={project.title}
-              description={project.description}
-              imgUrl={project.image}
-              gitUrl={project.gitUrl}
-              previewUrl={project.previewUrl}
+    <section id="specs" className="py-20 px-4 lg:px-16 bg-gradient-to-b from-black via-gray-900 to-black">
+      <div className="max-w-7xl mx-auto">
+        <h2 className="text-center text-4xl font-bold text-white mb-10">Gear & Setup</h2>
+
+        {/* Tags */}
+        <div className="flex flex-wrap justify-center gap-3 mb-12">
+          {["All", "Specs", "Gear", "Settings"].map((tagName) => (
+            <ProjectTag
+              key={tagName}
+              onClick={handleTagChange}
+              name={tagName}
+              isSelected={tag === tagName}
             />
-          </motion.li>
-        ))}
-      </ul>
+          ))}
+        </div>
+
+        {/* Grid de proyectos */}
+        <ul
+          ref={ref}
+          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8"
+        >
+          {filteredProjects.map((project, index) => (
+            <motion.li
+              key={project.id}
+              variants={cardVariants}
+              initial="initial"
+              animate={isInView ? "animate" : "initial"}
+              transition={{ duration: 0.4, delay: index * 0.15 }}
+            >
+              <ProjectCard
+                title={project.title}
+                description={project.description}
+                imgUrl={project.image}
+                gitUrl={project.gitUrl}
+                previewUrl={project.previewUrl}
+              />
+            </motion.li>
+          ))}
+        </ul>
+      </div>
     </section>
   );
 };

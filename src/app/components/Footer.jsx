@@ -1,29 +1,55 @@
 import React from "react";
-import MenuOverlay from "./MenuOverlay";
-import NavLink from "./NavLink";
+import { FaGithub, FaLinkedin, FaTwitter } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <footer className="bg-gradient-to-r from-background-800 via-backgorund-900 to-text text-text-50 py-8 border-t border-secondary-400">
-      <div className="container mx-auto flex flex-col md:flex-row justify-between items-center px-6">
-        {/* Logo o nombre del sitio */}
-        <div className="text-2xl font-bold">
-          <span className="text-gradient">SebRVV</span>
+    <footer className="bg-gradient-to-r from-black via-gray-900 to-black text-gray-300 py-10 border-t border-gray-700">
+      <div className="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-6">
+        
+        {/* Nombre / logo */}
+        <div className="text-2xl font-bold text-white">
+          Seb<span className="text-cyan-500">RVV</span>
         </div>
 
-        {/* Enlaces y derechos de autor */}
-        <div className="flex flex-col md:flex-row items-center">
-          <p className="text-sm md:mr-6 mb-4 md:mb-0">
-            ©2024 All rights reserved.
-          </p>
-          <nav className="flex space-x-4">
-            <a href="#about" className="hover:text-text-400">About</a>
-            <a href="#" className="hover:text-text-400">Home</a>
-          </nav>
+        {/* Redes sociales */}
+        <div className="flex space-x-6 text-2xl">
+          <FooterIcon
+            href="https://github.com/SebSRVV"
+            label="GitHub"
+            Icon={FaGithub}
+          />
+          <FooterIcon
+            href="https://www.linkedin.com/in/sebrvv/"
+            label="LinkedIn"
+            Icon={FaLinkedin}
+          />
+          <FooterIcon
+            href="https://x.com/tvsebrvv"
+            label="Twitter / X"
+            Icon={FaTwitter}
+          />
         </div>
+      </div>
+
+      {/* Derechos */}
+      <div className="mt-8 text-center text-sm text-gray-500">
+        © {new Date().getFullYear()} SebRVV. Todos los derechos reservados.
       </div>
     </footer>
   );
 };
+
+// Iconos sociales con animación y accesibilidad
+const FooterIcon = ({ href, Icon, label }) => (
+  <a
+    href={href}
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label={label}
+    className="text-gray-300 hover:text-cyan-400 transition-colors duration-300"
+  >
+    <Icon />
+  </a>
+);
 
 export default Footer;

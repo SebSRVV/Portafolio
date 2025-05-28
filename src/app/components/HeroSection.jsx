@@ -1,71 +1,71 @@
-"use client";
-import React from "react";
-import Image from "next/image";
-import { TypeAnimation } from "react-type-animation";
-import { motion } from "framer-motion";
-import Link from "next/link";
+'use client';
+import React from 'react';
+import Image from 'next/image';
+import { TypeAnimation } from 'react-type-animation';
+import { motion } from 'framer-motion';
+import Link from 'next/link';
 
 const HeroSection = () => {
   return (
-    <section className="relative py-12 lg:py-24">
-      <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-          {/* Texto y Animación */}
+    <section className="relative bg-gradient-to-b from-black via-gray-900 to-black py-20 lg:py-28 text-white">
+      <div className="container mx-auto px-6 lg:px-16">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+          {/* Texto */}
           <motion.div
-            initial={{ opacity: 0, y: 50 }}
+            initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
-            className="lg:col-span-7 flex flex-col justify-center text-center lg:text-left"
+            className="lg:col-span-7 text-center lg:text-left"
           >
-            <h1 className="text-white text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-extrabold leading-tight mb-2">
-              <span className="bg-clip-text text-transparent bg-gradient-to-r from-cyan-300 to-blue-600">
-                Hello, I&apos;m
-              </span>
-            </h1>
-            <div className="relative">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-extrabold leading-tight mb-4">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-600">
+                Hello, I’m
+              </span>{' '}
+              <br />
               <TypeAnimation
                 sequence={[
-                  "SebRVV",
-                  1000,
-                  "E-Sports Player",
-                  1000,
-                  "AimLab Champion",
-                  1000,
-                  "Game Developer",
-                  1000,
-                  "Programmer",
-                  1000,
+                  'SebRVV',
+                  2000,
+                  'E-Sports Player',
+                  2000,
+                  'AimLab Champion',
+                  2000,
+                  'Game Developer',
+                  2000,
+                  'Programmer',
+                  2000,
                 ]}
                 wrapper="span"
                 speed={50}
                 repeat={Infinity}
-                className="text-white text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold"
+                className="block text-white mt-2"
               />
-            </div>
-            <p className="text-gray-300 text-base sm:text-lg lg:text-xl mt-4 mb-6">
-              Me llamo Sebastian Rojas Vélez de Villa (SebRVV), tengo 20 años y soy e-sports player de Perú. Además de ser un apasionado por los videojuegos, también soy desarrollador en Unity, manejando lenguajes como C++, Python, JavaScript y Next.js. Mi objetivo es fusionar mi amor por los eSports y el desarrollo para crear experiencias únicas y desafiantes.
+            </h1>
+            <p className="text-lg md:text-xl text-gray-300 mt-6 mb-8 max-w-2xl leading-relaxed">
+              Soy Sebastian Rojas Vélez de Villa (SebRVV), desarrollador en Unity y jugador e-sports. Utilizo tecnologías como C++, Python, TypeScript y Next.js para crear experiencias únicas. Fusiono mi pasión por los videojuegos con el desarrollo.
             </p>
             <Link
-              href="/#contact"
-              className="px-6 py-3 rounded-full bg-gradient-to-br from-blue-500 to-teal-500 text-white font-semibold hover:bg-gradient-to-bl transition-colors duration-300 inline-block text-center"
+              href="#contact"
+              className="inline-block px-8 py-3 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-blue-600 hover:to-cyan-500 transition rounded-full text-white font-semibold text-lg shadow-lg"
             >
-              Contactame
+              Contáctame
             </Link>
           </motion.div>
 
           {/* Imagen */}
           <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
+            initial={{ opacity: 0, scale: 0.9 }}
             animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8 }}
-            className="lg:col-span-5 flex justify-center items-center"
+            transition={{ duration: 0.8, delay: 0.2 }}
+            className="lg:col-span-5 flex justify-center"
           >
-            <div className="relative w-64 h-64 lg:w-80 lg:h-80 rounded-full bg-[#1a1a1a] shadow-xl overflow-hidden">
+            <div className="relative w-64 h-64 lg:w-80 lg:h-80">
+              <div className="absolute inset-0 rounded-full bg-gradient-to-tr from-cyan-500 to-blue-500 animate-pulse blur-xl z-0" />
               <Image
                 src="/images/hero-image.png"
-                alt="hero image"
-                className="object-cover"
-                layout="fill"
+                alt="SebRVV Avatar"
+                fill
+                className="rounded-full object-cover z-10 relative border-4 border-gray-800 shadow-xl"
               />
             </div>
           </motion.div>
