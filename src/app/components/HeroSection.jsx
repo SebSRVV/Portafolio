@@ -45,10 +45,10 @@ const HeroSection = () => {
               Soy Sebastian Rojas Vélez de Villa (SebRVV), desarrollador en Unity y jugador e-sports. Utilizo tecnologías como C++, Python, TypeScript y Next.js para crear experiencias únicas. Fusiono mi pasión por los videojuegos con el desarrollo.
             </p>
             <Link
-              href="#contact"
+              href="https://github.com/SebSRVV"
               className="inline-block px-8 py-3 bg-gradient-to-r from-cyan-500 to-blue-600 hover:from-blue-600 hover:to-cyan-500 transition rounded-full text-white font-semibold text-lg shadow-lg"
             >
-              Contáctame
+              Ver mi GitHub
             </Link>
           </motion.div>
 
